@@ -116,12 +116,12 @@ export async function GET() {
   try {
     console.log(process.env.POSTGRES_URL);
     const result = await sql.begin((sql) => [
-      // seedUsers(),
-        seedCustomers(),
-        seedInvoices(),
-        seedRevenue(),
+      seedUsers(),
+      seedCustomers(),
+      seedInvoices(),
+      seedRevenue(),
     ]);
-    // seedUsers();
+
     return Response.json({ message: "Database seeded successfully" });
   } catch (error) {
     console.log(error);
